@@ -13,6 +13,5 @@ public class Operadores {
         }else {
             System.out.println("Nenhuma condição é verdadeira");
         }
-
     }
 }
