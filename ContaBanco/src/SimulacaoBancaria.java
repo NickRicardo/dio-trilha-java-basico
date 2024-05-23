@@ -1,58 +1,57 @@
-import java.util.Locale;
 import java.util.Scanner;
 
 /**
- * @author nicolas.santos
- * Este desafio eu fiz porem o corrigido pelo sistema foi de forma diferente, sem as saidas.
+ * Esse foi o corrigido pelo sistema.
  */
-public class ContaTerminal {
+
+public class SimulacaoBancaria {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Escolha uma opção");
-        System.out.println("1. Deposito");
-        System.out.println("2. Saque");
-        System.out.println("3. Consultar Saldo");
-        System.out.println("4. Encerrar");
 
         double saldo = 0;
         boolean continuar = true;
 
         while (continuar) {
-
             int opcao = scanner.nextInt();
 
             switch (opcao) {
                 case 1: {
-                    System.out.println("Digite o valor a ser depositado");
+                    // Solicitar o valor a ser depositado e atualizar o saldo
                     double valorDeposito = scanner.nextDouble();
                     saldo += valorDeposito;
-                    System.out.println("Saldo atual " + saldo);
+                    // Imprimir saldo atual com a formatação correta
+                    System.out.printf("Saldo atual: %.1f%n", saldo);
                     break;
                 }
 
                 case 2: {
-                    System.out.println("Digite o valor a ser sacado");
+                    // Solicitar o valor a ser sacado e verificar se há saldo suficiente
                     double valorSaque = scanner.nextDouble();
                     if (valorSaque > saldo) {
-                        System.out.println("Saldo insuficiente");
+                        System.out.println("Saldo insuficiente.");
                     } else {
                         saldo -= valorSaque;
-                        System.out.println("Saldo atual: " + saldo);
+                        // Imprimir saldo atual com a formatação correta
+                        System.out.printf("Saldo atual: %.1f%n", saldo);
                     }
                     break;
                 }
 
                 case 3: {
-                    System.out.println("O seu Saldo atual é de: " + saldo);
+                    // Exibir o saldo atual com a formatação correta
+                    System.out.printf("Saldo atual: %.1f%n", saldo);
                     break;
                 }
 
                 case 0:
+                    // Encerrar o programa
                     System.out.println("Programa encerrado.");
-                    continuar = false; //Atualizar a variável de controle para encerrar o loop
+                    continuar = false;
                     break;
+
                 default:
+                    // Caso o usuário insira uma opção inválida
                     System.out.println("Opção inválida. Tente novamente.");
             }
         }
